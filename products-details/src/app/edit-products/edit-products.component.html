@@ -1,0 +1,89 @@
+<div class="edit-box">
+  <form [formGroup]="editProductForm" (ngSubmit)="submitForm()">
+    <div class="container edit-box-body">
+      <div class="row">
+        <div class="col-lg-4">
+          <label>
+            Name<span style="color: red"> *</span>
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <input type="text" placeholder="Name" class="form-control" formControlName="name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <label>
+            Weight<span style="color: red"> *</span>
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <input type="text" placeholder="Weight" class="form-control" formControlName="weight">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <label>
+            Availability
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <input type="number" placeholder="Availability" class="form-control" formControlName="availability">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <label>
+            Product Url<span style="color: red"> *</span>
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <input type="text" placeholder="Product Url" class="form-control" formControlName="productUrl">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <label>
+            Price Tier<span style="color: red"> *</span>
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <input type="radio" id="priceTier" class="" formControlName="priceTier" value="budget">Budget
+          <input type="radio" id="priceTier" class="" formControlName="priceTier" value="premier">Premier
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <label>
+            Price Range<span style="color: red"> *</span>
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <select class="form-control" formControlName="priceRange">
+            <ng-container *ngFor="let data of dropdownValues;let i=index">
+              <option value="{{data}}">{{data}}</option>
+            </ng-container>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <label>
+            Is Editable<span style="color: red"> *</span>
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <input type="checkbox" placeholder="Email" class="form-control" formControlName="isEditable">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <button type="submit" class="btn btn-success" [disabled]="!editProductForm.valid">Continue</button>
+        </div>
+        <div class="col-lg-6">
+          <button type="reset" class="btn btn-success" (click)="cancel()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

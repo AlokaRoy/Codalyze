@@ -1,0 +1,21 @@
+.edit-box-body {
+    background: #fff;
+    padding: 20px;
+    border-top: 0;
+    color: #666;
+  }
+  
+  .edit-box {
+    width: 515px;
+    margin: 7% auto;
+  }
+  
+  input,
+  button {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    width: 100%;
+  }
+  
