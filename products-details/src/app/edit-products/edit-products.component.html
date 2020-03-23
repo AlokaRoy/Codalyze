@@ -1,45 +1,74 @@
-<div class="edit-box">
+<div class="container">
   <form [formGroup]="editProductForm" (ngSubmit)="submitForm()">
     <div class="container edit-box-body">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-sm-4">
           <label>
             Name<span style="color: red"> *</span>
           </label>
         </div>
-        <div class="col-lg-8">
-          <input type="text" placeholder="Name" class="form-control" formControlName="name">
+        <div class="col-sm-4">
+          <input type="text" placeholder="Name" class="form-control" formControlName="name" required>
+        </div>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="col-sm-4 text-danger">
+          <div *ngIf="name.errors.required">
+            This information is required.
+          </div>
+          <div *ngIf="name.errors.pattern">
+            Should only contain alphanumeric and spaces only.
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-sm-4">
           <label>
             Weight<span style="color: red"> *</span>
           </label>
         </div>
-        <div class="col-lg-8">
+        <div class="col-sm-4">
           <input type="text" placeholder="Weight" class="form-control" formControlName="weight">
+        </div>
+        <div *ngIf="weight.invalid && (weight.dirty || weight.touched)" class="col-sm-4 text-danger">
+          <div *ngIf="weight.errors.required">
+            This information is required.
+          </div>
+          <div *ngIf="weight.errors.pattern">
+            Should contain positive numbers only
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-sm-4">
           <label>
             Availability
           </label>
         </div>
-        <div class="col-lg-8">
+        <div class="col-sm-4">
           <input type="number" placeholder="Availability" class="form-control" formControlName="availability">
+        </div>
+        <div *ngIf="availability.invalid && (availability.dirty || availability.touched)" class="col-sm-4 text-danger">
+         <div *ngIf="availability.errors.pattern">
+            Should contain positive numbers only
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-sm-4">
           <label>
             Product Url<span style="color: red"> *</span>
           </label>
         </div>
-        <div class="col-lg-8">
-          <input type="text" placeholder="Product Url" class="form-control" formControlName="productUrl">
+        <div class="col-sm-4">
+          <input type="text" placeholder="Product Url" class="form-control" size="30" formControlName="productUrl">
         </div>
+        <div *ngIf="productUrl.invalid && (productUrl.dirty || productUrl.touched)" class="col-sm-4 text-danger">
+          <div *ngIf="productUrl.errors.required">
+            This information is required.
+          </div>
+          <div *ngIf="productUrl.errors.pattern">
+             Please enter a valid Url (e.g. http://www.product-url.com)
+           </div>
+         </div>
       </div>
       <div class="row">
         <div class="col-lg-4">
@@ -58,7 +87,7 @@
             Price Range<span style="color: red"> *</span>
           </label>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-4">
           <select class="form-control" formControlName="priceRange">
             <ng-container *ngFor="let data of dropdownValues;let i=index">
               <option value="{{data}}">{{data}}</option>
@@ -72,15 +101,15 @@
             Is Editable<span style="color: red"> *</span>
           </label>
         </div>
-        <div class="col-lg-8">
-          <input type="checkbox" placeholder="Email" class="form-control" formControlName="isEditable">
+        <div class="col-lg-4">
+          <input type="checkbox" class="form-control" formControlName="isEditable">
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6">
-          <button type="submit" class="btn btn-success" [disabled]="!editProductForm.valid">Continue</button>
+        <div class="col-lg-4">
+          <button type="submit" class="btn btn-success" [disabled]="!editProductForm.valid">Save</button>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
           <button type="reset" class="btn btn-success" (click)="cancel()">Cancel</button>
         </div>
       </div>

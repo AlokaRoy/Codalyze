@@ -28,7 +28,7 @@
               {{data.availability}}
             </td>
             <td>
-              <div *ngIf="data.isEditable" (click)="navigateToEdit()">Edit</div>
+              <div *ngIf="data.isEditable" (click)="navigateToEdit(i)">Edit</div>
             </td>
           </tr>
         </ng-container>

@@ -22,8 +22,8 @@ export class DisplayProductsComponent implements OnInit {
     });
   }
 
-  navigateToEdit() {
-    this.router.navigateByUrl('/edit-products');
+  navigateToEdit(id: number) {
+    this.router.navigateByUrl(`/edit-products/${id}`);
   }
 
 }
