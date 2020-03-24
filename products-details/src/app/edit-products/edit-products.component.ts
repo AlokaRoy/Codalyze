@@ -10,13 +10,13 @@ import { DataStoreService } from '../services/data-store.service';
   styleUrls: ['./edit-products.component.css']
 })
 export class EditProductsComponent implements OnInit {
-  private id: number = null;
-  private dropdownData = pricingInfo;
-  private dropdownValues = [];
-  private productData: Products = {
+  id: number = null;
+  dropdownData = pricingInfo;
+  dropdownValues = [];
+  productData: Products = {
     products: []
   };
-  private editProductForm = new FormGroup({
+  editProductForm = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.pattern('[a-zA-Z0-9 ]*')]),
     weight: new FormControl("", [Validators.required, Validators.pattern('[0-9]*')]),
     availability: new FormControl("", [Validators.pattern('[0-9]*')]),

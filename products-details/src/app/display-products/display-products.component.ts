@@ -11,7 +11,7 @@ import { DataFetchService } from '../services/data-fetch.service';
 })
 export class DisplayProductsComponent implements OnInit {
 
-  private productsToDisplay: Product[];
+  productsToDisplay: Product[];
 
   constructor(private dataService: DataStoreService, private router: Router, private dataFetchService: DataFetchService) { }
 
